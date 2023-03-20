@@ -1,11 +1,10 @@
 type Mutation {
     createBook(title: String, pages: Int, author: String): Book
-    addBook(book: BookInput!): Book
-    batchCreate(books: [BookInput!]!): [Book]
 }
 
 type Query {
     findAllBooks: [Book]
+    findBookById(id: ID!): Book
 }
 
 type Book {
@@ -20,10 +19,4 @@ type Review {
     id: ID!
     title: String
     comment: String
-}
-
-input BookInput {
-    title: String
-    pages: Int
-    author: String
 }
